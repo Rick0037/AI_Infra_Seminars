@@ -1,0 +1,22 @@
+[project]
+name = "assignment01"
+version = "0.1.0"
+description = "Session 1 作业：GPU & GPU Programming"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.4",
+    "triton>=3.0",
+    "pytest>=8.0",
+    "numpy",
+]
+
+[project.optional-dependencies]
+# TileLang 题（7.3～7.7、Bonus）用；README 的安装命令已带上此 extra
+tilelang = ["tilelang==0.1.12"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

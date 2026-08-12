@@ -1,0 +1,56 @@
+# Organizer-only docs (session planning, lecture prep) — not for students
+assignment*/docs/
+
+# Private AI-assistant context.
+# The committed CLAUDE.md / AGENTS.md are public, student-facing AI-usage
+# guidelines (CS336-style); everything below is local dev context.
+CLAUDE.local.md
+.claude/
+.cursor/
+.aider*
+.windsurf/
+
+# LaTeX build artifacts (the copy at assignment*/assignment*.pdf is committed;
+# the duplicate inside handout/ build dirs is not)
+assignment*/handout/*.pdf
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# CUDA build artifacts
+assignment*/cuda/bin/
+*.o
+*.ptx
+*.cubin
+*.fatbin
+*.sass
+
+# Misc
+.DS_Store
+
+# User personal files
+cof.md
+cot.md
+notes.md
+secrets/
+
+# Organizer-only tooling (HPC Game 题库上传脚本等)
+tools/
