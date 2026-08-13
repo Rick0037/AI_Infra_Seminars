@@ -7,4 +7,5 @@
 
 # cd /home/lcpu/46137424/ruixuan
 # uv run python src/ruixuan/learning_pytorch.py
-uv run python src/ruixuan/module.py
+# uv run python src/ruixuan/module.py
+uv run python src/ruixuan/trainning_loop.py
