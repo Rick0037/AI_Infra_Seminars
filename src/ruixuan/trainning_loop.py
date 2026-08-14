@@ -259,7 +259,19 @@ for epoch in range(num_epochs):
         )
         print(f"  ↑ 新最优,已保存 best_model.pt (Acc={acc:.2f}%)")
 
+
+print(f"已分配: {torch.cuda.memory_allocated() / 1024**3:.2f} GB")
+print(f"峰值:   {torch.cuda.max_memory_allocated() / 1024**3:.2f} GB")
+print(torch.cuda.memory_summary(abbreviated=True))
+
+# 分析某段代码的显存
+# 代码显示存储清0
+torch.cuda.reset_peak_memory_stats()
+# ... 运行目标代码 ...
+print(f"峰值: {torch.cuda.max_memory_allocated() / 1024**3:.2f} GB")
+
 # ==================== 训练结束后:导出最优模型为 ONNX ====================
+"""
 # 加载最优权重
 best_ckpt = torch.load("best_model.pt", map_location=device)
 model.load_state_dict(best_ckpt["model_state_dict"])
@@ -282,3 +294,4 @@ torch.onnx.export(
     opset_version=17,  # ONNX 算子版本
 )
 print(f"\n最优模型已导出为 best_model.onnx (最优 Acc={best_acc:.2f}%)")
+"""

@@ -13,3 +13,4 @@ wheels/
 # Data & checkpoint
 data/*
 *.pt
+uv.lock
