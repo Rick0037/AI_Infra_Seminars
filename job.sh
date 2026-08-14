@@ -9,4 +9,5 @@
 # uv run python src/ruixuan/learning_pytorch.py
 # uv run python src/ruixuan/module.py
 # uv run python src/ruixuan/trainning_loop.py
-uv run python src/ruixuan/gpu_trainning.py
+# uv run python src/ruixuan/gpu_trainning.py
+uv run python src/ruixuan/torch_profiler.py
