@@ -10,4 +10,6 @@
 # uv run python src/ruixuan/module.py
 # uv run python src/ruixuan/trainning_loop.py
 # uv run python src/ruixuan/gpu_trainning.py
-uv run python src/ruixuan/week_1/torch_profiler.py
+# uv run python src/ruixuan/week_1/torch_profiler.py
+
+uv run python src/ruixuan/week_2/symmetric.py
