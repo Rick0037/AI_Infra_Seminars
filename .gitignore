@@ -9,8 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-
-# Data & checkpoint
-data/*
-*.pt
-uv.lock
+# Compiled objects
+*.o

@@ -1,21 +1,12 @@
 [project]
-name = "ruixuan"
+name = "ai-infra-seminars"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+description = "AI Infra Seminars assignments (CUDA/Triton kernels)"
 requires-python = ">=3.10"
 dependencies = [
     "numpy>=2.2.6",
-    "onnxscript>=0.7.1",
-    "resnet>=0.1",
-    "tensorflow>=2.21.0",
+    "pytest>=8.0.0",
+    "tilelang>=0.1",
     "torch>=2.13.0",
-    "torchvision>=0.28.0",
+    "triton>=3.0",
 ]
-
-[project.scripts]
-ruixuan = "ruixuan:main"
-
-[build-system]
-requires = ["uv_build>=0.12.0,<0.13.0"]
-build-backend = "uv_build"
