@@ -27,10 +27,10 @@ class SymmetricQuant:
         # 四舍五入
         x_quant.round_()
         x_quant.clamp_(-x_quant_max, x_quant_max)
-        return x_quant, scale
+        return x_quant.to(torch.int8), scale
 
     def Dequant(self, x_quant: torch.Tensor, scale) -> torch.Tensor:
-        return x_quant * scale
+        return x_quant.float() * scale
 
 
 # 这里不是非对称，这里实际上就是uint8的层级
@@ -54,10 +54,10 @@ class AsymmetricQuant:
         x_quant.clamp_(x_quant_min, x_quant_max)
         # 为什么 要 clip [0,255] 因为：如果输入 0 不在 [min, max] 范围内（比如上面的 [3, 10]），
         # 算出来的 q 会超出 [0, 255]（如 q=-109），所以必须 clip [0, 255] 防止溢出 uint8 范围
-        return x_quant, scale, zero_pt
+        return x_quant.to(torch.uint8), scale, zero_pt
 
     def Dequant(self, x: torch.Tensor, scale, zero_pt) -> torch.Tensor:
-        return (x - zero_pt) * scale
+        return (x.float() - zero_pt) * scale
 
 
 def get_distribution(name: str, number: int, outlier: float = 0.01):
@@ -68,10 +68,9 @@ def get_distribution(name: str, number: int, outlier: float = 0.01):
         x = torch.randn(shape)
     elif name == "normal_01":
         x = torch.randn(shape) * 0.1
-
-    k = int(number * outlier)
-    index = torch.randperm(number)[:k]
-    x[index] = torch.rand(k) * 10 - 5
+        k = int(number * outlier)
+        index = torch.randperm(number)[:k]
+        x[index] = torch.rand(k) * 10 - 5
     return x
 
 
