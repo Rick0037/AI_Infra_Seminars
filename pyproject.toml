@@ -8,6 +8,7 @@ dependencies = [
     "numpy>=2.2.6",
     "onnxscript>=0.7.1",
     "resnet>=0.1",
+    "tensorflow>=2.21.0",
     "torch>=2.13.0",
     "torchvision>=0.28.0",
 ]
