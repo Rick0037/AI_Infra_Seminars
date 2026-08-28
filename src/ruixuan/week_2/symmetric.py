@@ -62,7 +62,10 @@ model_quantization = quantize_dynamic(
 
 """ int8 量化
 """
-"""
+
+# TODO 实际下划线的修改代表着原地修改数据的意思
+
+
 # clamp_ 阶段误差
 # round 近似误差
 def quant_per_tensor_absmax(x, n_bit=8):
@@ -97,4 +100,3 @@ Y = torch.matmul(X, W)
 print(Y)
 
 print(Y_head)
-"""
