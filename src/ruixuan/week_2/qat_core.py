@@ -26,6 +26,7 @@ torch.quantization.prepare_qat(quantized_model, inplace=True)
 # TODO inplace 实际上都是在某某地修改的模式
 quantized_model.train()
 
+# 这里不用 quantized_model 接也可以，因为使用了 inplace
 quantized_model = torch.quantization.convert(quantized_model, inplace=True)
 
 quantized_model.eval()
